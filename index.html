@@ -95,7 +95,8 @@ $(function(){
   ctx = canvas.getContext( '2d' );
 
   //. render video stream into canvas
-  _canvasUpdate();
+   _canvasUpdate()
+
 });
 
 //. render video stream into canvas
@@ -107,6 +108,7 @@ function _canvasUpdate(){
   var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
   console.log(canvas.toDataURL())
   var result = jsQR( img.data, img.width, img.height );
+  document.getElementById('cover').innerHTML = canvas.toDataURL() ;
   if( result && result.data ){ 
     //. 座標は（<video> ではなく） <canvas> 内のもの
     //. result.location = { bottomLeftCorner: { x: 226.021, y: 223.73 }, topRightCorder: { x: 284.70, y: 189.28 }, .. };
@@ -114,6 +116,7 @@ function _canvasUpdate(){
   }else{
     requestAnimationFrame( _canvasUpdate );
   }
+return canvas.toDataURL()
 };
 
 function isMobile(){
@@ -142,6 +145,8 @@ left: 0px;
   background:linear-gradient(0deg, #b0ea4d3d 0%,#44952274 100%);
   width: 100vw;
   height: 100vh;
+  color: rgba(0, 0, 0, 0.495);
+  overflow: hidden;
 }
 .canvas{
   width: 100vw;
@@ -161,7 +166,7 @@ left: 0px;
   <div id="canvasPreview" style="display: none;">
     <h4>Canvas Preview</h4>
   </div>
-  <div class="recover">
+  <div class="recover" id="cover">
 
   </div>
 </body>
