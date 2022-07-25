@@ -1,34 +1,104 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <video id="video" autoplay></video>
-    <style>
-        video{
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
-    <canvas id="canvas" width="640" height="480"></canvas>
-  <script>
-    var video = document.getElementById('video');
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
-    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-            video.srcObject = stream;
-            video.play();
-        });
+<head>
+<meta charset="utf8"/>
+<title>HTML Camera Inside</title>
+<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jsqr@latest/dist/jsQR.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script>
+var cameraSize = { w: 360, h: 240 };
+var canvasSize = { w: 360, h: 240 };
+var resolution = { w: 1080, h: 720 };
+var video = null;
+var media = null;
+var canvas = null;
+var ctx = null;
+$(function(){
+  //. video
+  video = document.createElement( 'video' );
+  video.id = 'video';
+  video.width = cameraSize.w;
+  video.height = cameraSize.h;
+  video.setAttribute( 'autoplay', true );  //. #1
+  video.setAttribute( 'muted', '' );       //. #1
+  video.setAttribute( 'playsinline', '' ); //. #1
+  document.getElementById( 'videoPreview' ).appendChild( video );
+
+  //. media
+  var data = {
+    audio: false,   //. no voice/mic
+    video: {
+      facingMode: 'user',  //. front
+      width: { ideal: resolution.w },
+      height: { ideal: resolution.h }
     }
-    video.addEventListener('progress',()=>{
-      console.log("test")
-      context.drawImage(video, 0, 0, 4000, 4000);
-    })
-  </script>
-  </body>
+  };
+  if( isMobile() ){
+    data.video.facingMode = 'environment'; //. back
+  }
+  media = navigator.mediaDevices.getUserMedia( data ).then( function( stream ){
+    video.srcObject = stream;
+  }).then( function( err ){
+  });
+
+  //. canvas
+  canvas = document.createElement( 'canvas' );
+  canvas.id = 'canvas';
+  canvas.width = canvasSize.w;
+  canvas.height = canvasSize.h;
+  document.getElementById( 'canvasPreview' ).appendChild( canvas );
+
+  //. context
+  ctx = canvas.getContext( '2d' );
+
+  //. render video stream into canvas
+  _canvasUpdate();
+});
+
+//. render video stream into canvas
+function _canvasUpdate(){
+  //. video to canvas(animation)
+  ctx.drawImage( video, 0, 0, canvas.width, canvas.height );
+
+  //. check QR code
+  var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
+  var result = jsQR( img.data, img.width, img.height );
+  if( result && result.data ){ 
+    //. 座標は（<video> ではなく） <canvas> 内のもの
+    //. result.location = { bottomLeftCorner: { x: 226.021, y: 223.73 }, topRightCorder: { x: 284.70, y: 189.28 }, .. };
+    alert( result.data ); 
+  }else{
+    requestAnimationFrame( _canvasUpdate );
+  }
+};
+
+function isMobile(){
+  var b = false;
+  var ua = navigator.userAgent;
+  if( ( ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 ) && ua.indexOf( 'Mobile' ) > 0 ){
+    b = true;
+  }
+
+  return b;
+}
+</script>
+<style>
+body{
+  background-color: #fcc;
+}
+</style>
+</head>
+<body>
+  <!-- video(visible) -->
+  <div class="container" id="videoPreview" style="text-align: center;">
+    <h4>Video Preview</h4>
+  </div>
+
+  <!-- canvas(invisible) -->
+  <div class="container" id="canvasPreview" style="text-align: center; display: none;">
+    <h4>Canvas Preview</h4>
+  </div>
+</body>
 </html>
-
-
-
