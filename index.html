@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <video id="video" width="640" height="480" autoplay></video>
+    <video id="video" autoplay></video>
+    <style>
+        video{
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
     <canvas id="canvas" width="640" height="480"></canvas>
   <script>
     var video = document.getElementById('video');
@@ -18,7 +24,7 @@
     }
     video.addEventListener('progress',()=>{
       console.log("test")
-      context.drawImage(video, 0, 0, 640, 480);
+      context.drawImage(video, 0, 0, 4000, 4000);
     })
   </script>
   </body>
