@@ -1,0 +1,25 @@
+{
+    "name": "AriakeLunchMap",
+    "short_name": "LunchMap",
+    "theme_color": "white",
+    "background_color": "white",
+    "display": "fullscreen",
+    "orientation": "any",
+    "scope": "",
+    "start_url": "/index.html",
+    
+    "icons": [
+        {
+            "src": "media/icons.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+      {
+        "src": "media/icons.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }
