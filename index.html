@@ -105,6 +105,7 @@ function _canvasUpdate(){
 
   //. check QR code
   var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
+  console.log(canvas.toDataURL())
   var result = jsQR( img.data, img.width, img.height );
   if( result && result.data ){ 
     //. 座標は（<video> ではなく） <canvas> 内のもの
