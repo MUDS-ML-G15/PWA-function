@@ -128,11 +128,18 @@ function isMobile(){
 </script>
 <style>
 body{
-  background-color: rgb(132, 245, 134);
+
   width: 375px;
   height: 812px;
 }
-
+.recover{
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  background:linear-gradient(0deg, #b0ea4d3d 0%,#44952274 100%);
+  width: 100vw;
+  height: 100vh;
+}
 </style>
 </head>
 
@@ -145,6 +152,9 @@ body{
   <!-- canvas(invisible) -->
   <div id="canvasPreview" style="display: none;">
     <h4>Canvas Preview</h4>
+  </div>
+  <div class="recover">
+
   </div>
 </body>
 </html>
