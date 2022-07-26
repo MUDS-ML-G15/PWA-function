@@ -108,7 +108,6 @@ function _canvasUpdate(){
   var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
   console.log(canvas.toDataURL())
   var result = jsQR( img.data, img.width, img.height );
-  document.getElementById('cover').innerHTML = canvas.toDataURL() ;
   if( result && result.data ){ 
     //. 座標は（<video> ではなく） <canvas> 内のもの
     //. result.location = { bottomLeftCorner: { x: 226.021, y: 223.73 }, topRightCorder: { x: 284.70, y: 189.28 }, .. };
