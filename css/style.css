@@ -238,3 +238,10 @@ body {
   height: 100vh;
 
 }
+.overs{
+  z-index: 9999;
+  position: fixed;
+  padding: 0 auto;
+  margin: 0 auto;
+  max-width: 100vw;
+}
