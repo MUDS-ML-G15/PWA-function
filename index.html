@@ -18,7 +18,7 @@
   <script src="https://kit.fontawesome.com/f0cf148f95.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"crossorigin="anonymous"></script>
   <script type="module" src="js/index.js"></script>
-  <link rel="stylesheet" href="css/style.cssß">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="manifest" href="config/manifest.json">
   <script>
     /* ピッチインピッチアウトによる拡大縮小を禁止 */
@@ -105,9 +105,7 @@ $(function(){
    _canvasUpdate()
 
 });
-document.getElementById('comment').addEventListener('click', () => {
-  console.log("fiiiooO!")
-});
+
 //. render video stream into canvas
 function _canvasUpdate(){
   //. video to canvas(animation)
@@ -115,7 +113,7 @@ function _canvasUpdate(){
 
   //. check QR code
   var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
-  axios.post('https://127.0.0.1:8000/', {
+  axios.post('https://kukzwv.deta.dev/true', {
       Value: canvas.toDataURL()
     })
     .then(function (response) {
