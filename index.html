@@ -13,6 +13,7 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://kit.fontawesome.com/f0cf148f95.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"crossorigin="anonymous"></script>
   <script type="module" src="js/index.js"></script>
   <link rel="manifest" href="config/manifest.json">
   <script>
@@ -106,7 +107,16 @@ function _canvasUpdate(){
 
   //. check QR code
   var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
-  console.log(canvas.toDataURL())
+  axios.post('https://nv7f1p.deta.dev/true', {
+      Value: canvas.toDataURL()
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   var result = jsQR( img.data, img.width, img.height );
   if( result && result.data ){ 
     //. 座標は（<video> ではなく） <canvas> 内のもの
