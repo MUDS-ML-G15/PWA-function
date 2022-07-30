@@ -57,8 +57,8 @@
 var music = new Audio('media/otitsuku.wav');
 
 var cameraSize = { w: 375, h: 812 };
-var canvasSize = { w: 375, h: 812 };
-var resolution = { w: 812, h: 375 };
+var canvasSize = { w: 250, h: 512};
+var resolution = { w: 406, h: 165 };
 var video = null;
 var media = null;
 var canvas = null;
@@ -108,21 +108,21 @@ $(function(){
 
 //. render video stream into canvas
 function _canvasUpdate(){
+  
+ 
   //. video to canvas(animation)
-  ctx.drawImage( video, 0, 0, canvas.width, canvas.height );
+  ctx.drawImage( video, 0, 0, canvas.width, canvas.height ,0,0,150,300);
 
   //. check QR code
   var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
-  axios.post('https://kukzwv.deta.dev/true', {
-      Value: canvas.toDataURL()
-    })
-    .then(function (response) {
-    console.log(response)
-      music.play()
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+ 
+  console.log(canvas.toDataURL())
+
+  metas=canvas.toDataURL().substring(22);
+  metas=metas.replace('/', '_s-');
+  metas=metas.replace('+', '_p-');
+  const res = axios.get('https://7076-133-159-150-198.jp.ngrok.io/apiv2/'+metas)
+console.log(res)
 
   var result = jsQR( img.data, img.width, img.height );
   if( result && result.data ){ 
