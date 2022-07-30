@@ -3,7 +3,7 @@
     "short_name": "何でもいいよ",
     "theme_color": "white",
     "background_color": "white",
-    "display": "fullscreen",
+    "display": "standalone",
     "orientation": "any",
     "scope": "",
     "start_url": "https://muds-ml-g15.github.io/PWA-function/",
