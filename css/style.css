@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
+ß
+
+   nav{
+     background:none;
+     pointer-events: none;
+   }
+   .logo{
+
+     background-attachment: fixed;
+   }
+   .top{
+     width: 100%;
+   
+     transition: 1s;
+     border-radius: 20px 20px 20px 20px;
+   }
+   .top:hover{
+     filter: grayscale(0%);
+   }
+   .card{
+     background: none;
+     border: none;
+     border-radius: 20px;
+     margin-left: 5px;
+     margin-right: 5px;
+     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+     margin-top: 10px;
+    margin: 15px;
+    background-color: white;
+   }
+   .cont{
+     margin-top: 130px;
+   }
+   .card-title{
+     font-family: 'Noto Sans JP', sans-serif;
+     font-weight: 900;
+     font-size:10px;
+     text-align: center;
+
+     width: 100%;
+   }
+
+   .mains{
+     width: 100%;
+     filter: grayscale(100%);
+   }
+   .title{
+     text-align: center;
+     font-weight: 100;
+     margin-top: 1px;
+     color: rgb(17, 56, 51);
+   }
+   .photos{
+     z-index: 0;
+     position: fixed;
+   }
+   .text{
+     font-size: 20px;
+   }
+   .col-md-6{
+     margin: 0;
+   }
+   .title{
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+  
+  }
+  .menu{
+      z-index: 2;
+      position: fixed;
+      top: 40vmin;
+      right: 10vmin;
+      font-size: 40px;
+  }
+  .maps{
+      border-radius: 10px;
+  }
+
+  .left{
+      text-align: left;
+  }
+  /* Set the size of the div element that contains the map */
+#map {
+  height: 120vh;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+  z-index: 0;
+}
+
+.bar{
+
+
+  text-align: center;
+  margin: 0  auto;
+  padding: 0 auto;
+  background-color:none;
+ width: 100%;
+ padding-bottom: 10px;
+ border-radius:  40px 40px 0px 0px ;
+
+
+
+}
+.center{
+  text-align: center;
+  width: 0 auto;
+  height: 0px auto;
+}
+
+.container-fluid{
+  z-index: 360;
+  position: fixed;
+  bottom: 0px;
+}
+.apps{
+  font-size:40px;
+  margin: 10px;
+}
+.gm-fullscreen-control,.gmnoprint{
+  display: none;
+}
+a{
+  color: rgb(171, 171, 171);
+}
+.about{
+  margin-top: 100px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 100;
+}
+.bi{
+  font-weight: 100;
+  color: rgb(171, 171, 171);
+}
+.apps{
+  color: rgb(17, 56, 51);
+  margin: 30px;
+  
+  border-radius: 10px;
+
+  text-align: center;
+  background: -webkit-linear-gradient(left, rgb(6, 139, 121), #c829d6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.badge{
+  font-size:10px;
+}
+.grad{
+  background:linear-gradient(180deg,#c7c7c700 0%,#f2f2f245 70%,#c3cf92 100%);
+  pointer-events: none;
+  z-index: 220;
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.grad1{
+  background:linear-gradient(135deg,#26262600 0%,#f2f2f245 80%,#e14a779b 100%);
+  pointer-events: none;
+  z-index: 222;
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.grad2{
+  background:linear-gradient(-135deg,#00000000 0%,#f2f2f245 80%,#4ac0e19b 100%);
+  pointer-events: none;
+  z-index: 222;
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.grad3{
+  background:linear-gradient(0deg,#00000000 90%,rgb(255, 255, 255) 100%);
+  pointer-events: none;
+  z-index: 222;
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.backmenu{
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  height: 80px;
+  background-color: whitesmoke;
+}
+.ariake{
+   
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 900;
+  mix-blend-mode:difference;
+}
