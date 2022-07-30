@@ -55,6 +55,7 @@
 
 <script>
 var music = new Audio('media/otitsuku.wav');
+
 var cameraSize = { w: 375, h: 812 };
 var canvasSize = { w: 375, h: 812 };
 var resolution = { w: 812, h: 375 };
@@ -104,7 +105,9 @@ $(function(){
    _canvasUpdate()
 
 });
-
+document.getElementById('comment').addEventListener('click', () => {
+  console.log("fiiiooO!")
+});
 //. render video stream into canvas
 function _canvasUpdate(){
   //. video to canvas(animation)
@@ -112,12 +115,12 @@ function _canvasUpdate(){
 
   //. check QR code
   var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
-  axios.post('https://nv7f1p.deta.dev/true', {
+  axios.post('https://127.0.0.1:8000/', {
       Value: canvas.toDataURL()
     })
     .then(function (response) {
-
-      music.play();
+    console.log(response)
+      music.play()
     })
     .catch(function (error) {
       console.log(error);

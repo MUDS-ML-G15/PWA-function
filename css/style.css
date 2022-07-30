@@ -204,3 +204,37 @@ a{
   font-weight: 900;
   mix-blend-mode:difference;
 }
+body,
+input,
+textarea,
+select {
+  /* 入力欄にフォーカスが当たっても拡大しない */
+  font-size: 17px;
+}
+body {
+  width: 400px;
+  height: 100vh;
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+}
+
+.recover {
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  background: linear-gradient(0deg, #0000003d 0%, #1e1e1e74 100%);
+  width: 100vw;
+  height: 100vh;
+  color: rgba(13, 255, 0, 0.495);
+  overflow-wrap: break-word;
+
+}
+
+.canvas {
+  width: 100vw;
+  height: 100vh;
+
+}
