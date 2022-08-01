@@ -127,7 +127,7 @@ async function _canvasUpdate(){
   var nowSec  = nowTime.getSeconds();
 console.log(nowSec)
 if(nowSec==0||nowSec==15||nowSec==30 ||nowSec==45){
-  res =  await axios.get('https://1cd8-111-99-219-134.jp.ngrok.io/apiv2/'+metas)
+  res =  await axios.get('https://3f3b-202-240-109-135.jp.ngrok.io/apiv2/'+metas)
   console.log(res)
   if (res.data.index1==true){
   cover=document.getElementById("overs")
